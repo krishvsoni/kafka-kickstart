@@ -19,7 +19,20 @@ async function main(){
     })
 
 
-
+    async function main() {
+        await producer.connect();
+        await producer.send({
+          topic: "payment-done",
+          messages: [{
+            value: "hi there",
+            key: "user1"
+          }]
+        });
+      }
+      ///
+      await consumer.subscribe({
+        topic: "payment-done", fromBeginning: true
+      })
 await consumer.connect();
 await consumer.subscribe({
   topic: "quickstart-events", fromBeginning: true

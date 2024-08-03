@@ -25,6 +25,22 @@ function main() {
                 { value: 'Hello From SAM!' },
             ],
         });
+        function main() {
+            return __awaiter(this, void 0, void 0, function* () {
+                yield producer.connect();
+                yield producer.send({
+                    topic: "payment-done",
+                    messages: [{
+                            value: "hi there",
+                            key: "user1"
+                        }]
+                });
+            });
+        }
+        ///
+        yield consumer.subscribe({
+            topic: "payment-done", fromBeginning: true
+        });
         yield consumer.connect();
         yield consumer.subscribe({
             topic: "quickstart-events", fromBeginning: true

@@ -6,7 +6,8 @@
     "test": "echo \"Error: no test specified\" && exit 1",
     "start":"npx tsc -b && node build/index.js",
     "produce":"npx tsc -b && node build/producer.js",
-    "consume": "tsc -b && node build/consumer.js"
+    "consume": "tsc -b && node build/consumer.js",
+    "produce:user": "npx tsc -b && node build/producer-user.js"
 
   },
   "keywords": [],
